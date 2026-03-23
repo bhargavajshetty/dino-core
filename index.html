@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="referrer" content="no-referrer"/>
+<title>DINO.CORE | Jurassic Modern Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#dae2fd",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-primary-container": "#93e0a2",
+              "surface-dim": "#0b1326",
+              "tertiary": "#ffb95f",
+              "on-error-container": "#ffdad6",
+              "surface-container-lowest": "#060e20",
+              "surface-container-low": "#131b2e",
+              "on-primary": "#003918",
+              "inverse-surface": "#dae2fd",
+              "on-secondary": "#561f00",
+              "on-error": "#690005",
+              "on-secondary-container": "#fc9e6f",
+              "surface-bright": "#31394d",
+              "secondary-fixed": "#ffdbcc",
+              "on-primary-fixed": "#00210b",
+              "primary-fixed": "#a6f4b5",
+              "primary-fixed-dim": "#8bd79b",
+              "on-secondary-fixed-variant": "#76330d",
+              "on-surface": "#dae2fd",
+              "secondary": "#ffb693",
+              "tertiary-fixed": "#ffddb8",
+              "primary-container": "#166534",
+              "secondary-fixed-dim": "#ffb693",
+              "surface-container-high": "#222a3d",
+              "surface-tint": "#8bd79b",
+              "outline": "#899388",
+              "secondary-container": "#76330d",
+              "surface": "#0b1326",
+              "on-tertiary-fixed": "#2a1700",
+              "on-tertiary-fixed-variant": "#653e00",
+              "background": "#0b1326",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#351000",
+              "error-container": "#93000a",
+              "inverse-primary": "#1f6c3a",
+              "outline-variant": "#404940",
+              "surface-container": "#171f33",
+              "tertiary-container": "#7d4e00",
+              "surface-container-highest": "#2d3449",
+              "on-surface-variant": "#bfc9bd",
+              "on-tertiary": "#472a00",
+              "primary": "#8bd79b",
+              "inverse-on-surface": "#283044",
+              "on-primary-fixed-variant": "#005226",
+              "on-tertiary-container": "#ffc47d",
+              "surface-variant": "#2d3449"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(45, 52, 73, 0.4);
+            backdrop-filter: blur(12px);
+        }
+        .amber-glow {
+            box-shadow: 0 0 32px -4px rgba(255, 185, 95, 0.15);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+    </style>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="font-body selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 py-4 bg-slate-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(255,185,95,0.1)] transition-all duration-300 hover:backdrop-blur-2xl">
+<div class="text-2xl font-black tracking-tighter text-green-400 uppercase font-headline">DINO.CORE</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-green-400 border-b-2 border-orange-300 pb-1 font-bold font-headline tracking-tight" href="index.html">Discovery</a>
+<a class="text-slate-400 font-medium hover:text-green-200 font-headline tracking-tight transition-all" href="eras.html">Eras</a>
+<a class="text-slate-400 font-medium hover:text-green-200 font-headline tracking-tight transition-all" href="fossils.html">Fossils</a>
+<a class="text-slate-400 font-medium hover:text-green-200 font-headline tracking-tight transition-all" href="research.html">Research</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-white/5 rounded-full px-4 py-1.5 border border-outline-variant/15">
+<span class="material-symbols-outlined text-sm text-slate-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-on-surface placeholder:text-slate-500 w-32" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-tertiary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-tertiary transition-colors" data-icon="settings">settings</span>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-xl font-bold text-sm tracking-tight scale-95 active:scale-90 transition-transform">Sign In</button>
+</div>
+</nav>
+
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[870px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic prehistoric jungle landscape" class="w-full h-full object-cover opacity-60 parallax-bg" data-speed="0.3" data-alt="Mist-covered primeval jungle with towering ferns" src="images/img_0.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="particle-container" id="hero-particles"></div>
+<div class="relative z-10 max-w-4xl">
+<span class="inline-block py-1 px-3 mb-6 rounded-sm bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-[0.3em] font-headline">Research Archive 72-B</span>
+<h1 class="text-6xl md:text-8xl font-black font-headline tracking-tighter text-on-background leading-none mb-8 reveal">
+                    Explore the <span class="gradient-text italic">Giants</span> of the <br/> Mesozoic Era
+                </h1>
+<p id="hero-tagline" class="text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 font-light leading-relaxed reveal stagger-1">
+                    Unearth the biological blueprints of the world's most formidable predators and gentle titans. Access high-fidelity reconstructions and biomechanical data from the Triassic to the Cretaceous.
+                </p>
+<div class="flex flex-wrap gap-6">
+<a href="eras.html">
+    <button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-5 rounded-xl font-black font-headline uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(139,215,155,0.3)] hover:shadow-[0_0_40px_rgba(139,215,155,0.5)] transition-all">Begin Discovery</button>
+</a>
+<a href="fossils.html">
+    <button class="bg-surface-bright/20 backdrop-blur-md text-tertiary px-10 py-5 rounded-xl font-bold font-headline uppercase tracking-widest text-sm border border-tertiary/20 hover:border-tertiary/50 transition-all">Data Terminal</button>
+</a>
+</div>
+</div>
+<!-- Floating Data Card -->
+<div class="absolute bottom-20 right-16 hidden lg:block glass-card p-6 rounded-xl border border-white/10 amber-glow max-w-xs float-animation">
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] text-tertiary uppercase font-bold tracking-widest">Live Specimen Feed</span>
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-highest overflow-hidden">
+<img alt="Small dinosaur icon" data-alt="Close up of dinosaur eye texture" src="images/img_1.jpg"/>
+</div>
+<div>
+<h4 class="font-headline font-black text-xs uppercase tracking-tight">V. Mongoliensis</h4>
+<p class="text-[10px] text-slate-400">Activity Level: High</p>
+<p class="text-[10px] text-slate-400">Biome: Gobi Basin</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Counter Section -->
+<section class="max-w-6xl mx-auto px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+        <div class="text-center p-8 bg-surface-container-highest/50 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div class="text-4xl md:text-5xl font-black font-headline gradient-text mb-2" data-count="45">0</div>
+            <div class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Species Catalogued</div>
+        </div>
+        <div class="text-center p-8 bg-surface-container-highest/50 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div class="text-4xl md:text-5xl font-black font-headline gradient-text-green mb-2" data-count="3">0</div>
+            <div class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Geological Eras</div>
+        </div>
+        <div class="text-center p-8 bg-surface-container-highest/50 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div class="text-4xl md:text-5xl font-black font-headline gradient-text-amber mb-2" data-count="8">0</div>
+            <div class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Fossil Specimens</div>
+        </div>
+        <div class="text-center p-8 bg-surface-container-highest/50 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div class="text-4xl md:text-5xl font-black font-headline gradient-text mb-2" data-count="180">0</div>
+            <div class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">Million Years Span</div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="max-w-4xl mx-auto px-8 py-24 text-center">
+    <span class="text-tertiary font-black font-headline uppercase tracking-[0.4em] text-xs mb-4 block reveal">The Mesozoic Era</span>
+    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter uppercase mb-8 leading-tight text-on-background reveal stagger-1">
+        The Age of <span class="gradient-text italic">Reptiles</span>
+    </h2>
+    <p class="text-on-surface-variant text-lg leading-relaxed mb-8 reveal stagger-2">
+        Spanning over 180 million years, the Mesozoic Era was a time of unimaginable biological innovation. Following the greatest mass extinction in Earth's history, the planet was a blank canvas. From these ashes rose the Archosaurs, and eventually, the Dinosaurs—creatures that would dominate land, sea, and sky. 
+    </p>
+    <p class="text-on-surface-variant text-lg leading-relaxed mb-12 reveal stagger-3">
+        Through DINO.CORE, you have access to a decentralized, highly advanced archive of paleontology data. Navigate through our <strong>Eras</strong> database to study 45+ unique specimens categorized by their geologic timeline, browse high-definition scans in the <strong>Fossils</strong> archive, or read up on our active expeditions in the <strong>Research</strong> lab.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left stagger-container">
+        <a href="eras.html" class="p-8 bg-surface-container-highest rounded-xl border border-white/5 hover:border-primary/50 transition-all group tilt-card card-shine stagger-card reveal">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl group-hover:scale-110 transition-transform" data-icon="landscape">landscape</span>
+            <h3 class="font-bold text-lg text-white mb-2 font-headline uppercase">Explore Eras</h3>
+            <p class="text-xs text-slate-400">Dive into the Triassic, Jurassic, and Cretaceous databases.</p>
+            <div class="mt-4 flex items-center gap-2 text-primary text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Enter Database</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </div>
+        </a>
+        <a href="fossils.html" class="p-8 bg-surface-container-highest rounded-xl border border-white/5 hover:border-tertiary/50 transition-all group tilt-card card-shine stagger-card reveal">
+            <span class="material-symbols-outlined text-tertiary mb-4 text-3xl group-hover:scale-110 transition-transform" data-icon="biotech">biotech</span>
+            <h3 class="font-bold text-lg text-white mb-2 font-headline uppercase">View Fossils</h3>
+            <p class="text-xs text-slate-400">Analyze high-fidelity structural scans and skeletal remains.</p>
+            <div class="mt-4 flex items-center gap-2 text-tertiary text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Open Archive</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </div>
+        </a>
+        <a href="research.html" class="p-8 bg-surface-container-highest rounded-xl border border-white/5 hover:border-secondary/50 transition-all group tilt-card card-shine stagger-card reveal">
+            <span class="material-symbols-outlined text-secondary mb-4 text-3xl group-hover:scale-110 transition-transform" data-icon="science">science</span>
+            <h3 class="font-bold text-lg text-white mb-2 font-headline uppercase">Research Lab</h3>
+            <p class="text-xs text-slate-400">Review genetic echoes and ongoing global excavations.</p>
+            <div class="mt-4 flex items-center gap-2 text-secondary text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>View Studies</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </div>
+        </a>
+    </div>
+</section>
+<!-- Footer / Data Map Section -->
+<footer class="px-8 py-20 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div class="max-w-xs">
+<h2 class="text-2xl font-black font-headline text-green-400 uppercase tracking-tighter mb-6">DINO.CORE</h2>
+<p class="text-xs text-slate-500 leading-relaxed mb-8">
+                        The world's leading decentralized paleontology database. Dedicated to the digital preservation of the Mesozoic era through advanced 3D scanning and biomechanical modeling.
+                    </p>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-slate-400 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="public">public</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-slate-400 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-slate-400 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="database">database</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div>
+<h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-tertiary mb-6">Discovery</h4>
+<ul class="space-y-4">
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Taxonomy</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Skeletal Scans</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Habitat Mapping</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Genetic Echoes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-tertiary mb-6">The Lab</h4>
+<ul class="space-y-4">
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Protocol</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Contributors</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">Whitepapers</a></li>
+<li><a class="text-xs text-slate-400 hover:text-on-background transition-colors" href="#">API Access</a></li>
+</ul>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-tertiary mb-6">Global Sites</h4>
+<div class="w-full h-32 rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Map location of excavation sites" class="w-full h-full object-cover opacity-50 grayscale" data-alt="Abstract dark world map with pin points" data-location="Western United States" src="images/img_2.jpg"/>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-16 mt-16 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6">
+<span class="text-[10px] text-slate-600 uppercase tracking-widest">© 2024 DINO.CORE RESEARCH INITIATIVE</span>
+<div class="flex gap-8">
+<a class="text-[10px] text-slate-600 uppercase tracking-widest hover:text-slate-400" href="#">Security</a>
+<a class="text-[10px] text-slate-600 uppercase tracking-widest hover:text-slate-400" href="#">Privacy</a>
+<a class="text-[10px] text-slate-600 uppercase tracking-widest hover:text-slate-400" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation Shell -->
+<div class="md:hidden fixed bottom-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-t border-white/5 px-6 py-4 flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-primary" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-primary">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 group text-slate-500">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 group text-slate-500">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Archive</span>
+</button>
+<button class="flex flex-col items-center gap-1 group text-slate-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</div>
+<script src="animations.js"></script>
+<script>
+    // Init particles in hero
+    initParticles('hero-particles', 25);
+
+    // Animate stat counters
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('[data-count]').forEach(el => {
+                    animateCounter(el, parseInt(el.dataset.count));
+                });
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.grid').forEach(g => {
+        if (g.querySelector('[data-count]')) counterObserver.observe(g);
+    });
+</script>
+</body></html>

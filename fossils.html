@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="referrer" content="no-referrer"/>
+<title>DINO.CORE | Fossil Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#283044",
+              "primary": "#8bd79b",
+              "surface-tint": "#8bd79b",
+              "on-surface-variant": "#bfc9bd",
+              "background": "#0b1326",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#ffb693",
+              "surface-bright": "#31394d",
+              "on-secondary-container": "#fc9e6f",
+              "on-primary": "#003918",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#ffddb8",
+              "on-secondary-fixed-variant": "#76330d",
+              "on-error": "#690005",
+              "surface-container": "#171f33",
+              "secondary": "#ffb693",
+              "secondary-fixed": "#ffdbcc",
+              "on-tertiary-container": "#ffc47d",
+              "primary-container": "#166534",
+              "surface-variant": "#2d3449",
+              "on-primary-fixed": "#00210b",
+              "on-primary-container": "#93e0a2",
+              "secondary-container": "#76330d",
+              "tertiary-container": "#7d4e00",
+              "inverse-primary": "#1f6c3a",
+              "primary-fixed": "#a6f4b5",
+              "on-primary-fixed-variant": "#005226",
+              "primary-fixed-dim": "#8bd79b",
+              "on-tertiary-fixed-variant": "#653e00",
+              "outline": "#899388",
+              "surface-container-high": "#222a3d",
+              "surface": "#0b1326",
+              "on-tertiary-fixed": "#2a1700",
+              "error-container": "#93000a",
+              "surface-container-lowest": "#060e20",
+              "tertiary": "#ffb95f",
+              "surface-dim": "#0b1326",
+              "on-secondary-fixed": "#351000",
+              "on-secondary": "#561f00",
+              "outline-variant": "#404940",
+              "inverse-surface": "#dae2fd",
+              "on-tertiary": "#472a00",
+              "on-background": "#dae2fd",
+              "surface-container-low": "#131b2e",
+              "surface-container-highest": "#2d3449",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-surface": "#dae2fd"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card {
+        background: rgba(23, 31, 51, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .amber-glow {
+        box-shadow: 0 0 32px -4px rgba(255, 185, 95, 0.15);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-emerald-950/60 backdrop-blur-xl shadow-[0_0_32px_-4px_rgba(255,185,95,0.1)] flex justify-between items-center px-8 h-20 w-full">
+<div class="text-2xl font-black tracking-tighter text-emerald-400">DINO.CORE</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-epilogue tracking-tight text-sm uppercase text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="index.html">Discovery</a>
+<a class="font-epilogue tracking-tight text-sm uppercase text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="eras.html">Eras</a>
+<a class="font-epilogue tracking-tight text-sm uppercase text-amber-400 font-bold border-b-2 border-amber-400 pb-1 hover:text-emerald-300 transition-colors duration-300" href="fossils.html">Fossils</a>
+<a class="font-epilogue tracking-tight text-sm uppercase text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="research.html">Research</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-emerald-900/20 px-4 py-2 rounded-full border border-outline-variant/15">
+<span class="material-symbols-outlined text-emerald-400 text-lg mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 text-emerald-100 w-48 placeholder:text-emerald-100/30" placeholder="Search specimens..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-emerald-100/70 hover:text-emerald-300 transition-colors scale-95 active:scale-90 transition-transform" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-emerald-100/70 hover:text-emerald-300 transition-colors scale-95 active:scale-90 transition-transform" data-icon="settings">settings</button>
+<div class="w-10 h-10 rounded-full border-2 border-emerald-400 overflow-hidden">
+<img alt="Researcher Profile" class="w-full h-full object-cover" data-alt="Close up of a researcher wearing tech glasses" src="images/img_4.jpg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Sidebar & Layout Wrapper -->
+<div class="flex pt-20 h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-24 bg-emerald-950/40 backdrop-blur-2xl flex flex-col gap-4 p-6 hidden md:flex">
+<div class="mb-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl" data-icon="pets">pets</span>
+</div>
+<div>
+<h3 class="text-emerald-400 font-black text-sm">Geological Eras</h3>
+<p class="text-[10px] text-emerald-100/50 uppercase tracking-widest">Phanerozoic Eon</p>
+</div>
+</div>
+<nav class="space-y-1" id="sidebar-nav">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out bg-emerald-800/40 text-amber-400 border-r-4 border-amber-400 font-epilogue font-medium text-base cursor-pointer" onclick="showCategory('All')">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+                    All Fossils
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out text-emerald-100/60 hover:bg-emerald-800/20 hover:text-emerald-200 font-epilogue font-medium text-base cursor-pointer" onclick="showCategory('Skeleton')">
+<span class="material-symbols-outlined" data-icon="bone">bone</span>
+                    Skeletons
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out text-emerald-100/60 hover:bg-emerald-800/20 hover:text-emerald-200 font-epilogue font-medium text-base cursor-pointer" onclick="showCategory('Imprint')">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+                    Imprints
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out text-emerald-100/60 hover:bg-emerald-800/20 hover:text-emerald-200 font-epilogue font-medium text-base cursor-pointer" onclick="showCategory('Skull')">
+<span class="material-symbols-outlined" data-icon="skull">skull</span>
+                    Skulls
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out text-emerald-100/60 hover:bg-emerald-800/20 hover:text-emerald-200 font-epilogue font-medium text-base cursor-pointer" onclick="showCategory('Amber')">
+<span class="material-symbols-outlined" data-icon="lens_blur">lens_blur</span>
+                    Amber
+                </a>
+</nav>
+
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 overflow-y-auto bg-background">
+<div class="min-h-full bg-background/80 backdrop-blur-3xl p-8 lg:p-12">
+<!-- Page Header & Filter Chips -->
+<div class="mb-12">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div>
+<span class="text-xs font-bold text-tertiary tracking-[0.3em] uppercase mb-2 block" id="fossil-subtitle">Specimen Catalog</span>
+<h1 class="font-headline text-5xl font-black text-on-surface tracking-tighter leading-tight" id="fossil-title">All Fossils</h1>
+</div>
+<div class="relative flex-1 max-w-sm flex items-center">
+    <span class="material-symbols-outlined absolute left-4 text-emerald-400">search</span>
+    <input id="fossil-search" onkeyup="filterFossils()" class="w-full bg-surface-dim border border-white/10 rounded-xl pl-12 pr-4 py-3 text-sm focus:ring-2 focus:ring-emerald-400 transition-all text-white outline-none" placeholder="Search fossils..." type="text"/>
+</div>
+</div>
+</div>
+<div id="fossil-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Rendered via JS -->
+</div>
+
+<!-- Fossil Detail Modal -->
+<div id="fossil-modal" class="fixed inset-0 z-[100] bg-background/90 backdrop-blur-md hidden flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+    <div class="bg-surface-container-highest rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.8)] relative flex flex-col md:flex-row transform scale-95 transition-transform duration-300" id="modal-content">
+        <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center text-white hover:bg-error-container hover:text-error transition-colors"><span class="material-symbols-outlined">close</span></button>
+        <div class="w-full md:w-1/2 h-64 md:h-auto relative bg-surface-dim">
+            <img id="modal-img" src="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-surface-container-highest to-transparent"></div>
+        </div>
+        <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+            <span id="modal-category" class="text-primary font-black font-headline uppercase tracking-[0.2em] text-[10px] mb-2">Category</span>
+            <h2 id="modal-name" class="text-4xl lg:text-5xl font-black font-headline tracking-tighter uppercase mb-6 text-white leading-none">Name</h2>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-surface-container-low p-4 rounded-xl border border-white/5 border-l-4 border-l-primary">
+                    <span class="block text-[10px] text-primary/50 uppercase font-bold tracking-widest mb-1">Location</span>
+                    <span id="modal-location" class="text-sm font-bold text-white uppercase">Location</span>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-xl border border-white/5">
+                    <span class="block text-[10px] text-primary/50 uppercase font-bold tracking-widest mb-1">Discovery</span>
+                    <span id="modal-discovery" class="text-sm font-bold text-white uppercase">Year</span>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-xl border border-white/5">
+                    <span class="block text-[10px] text-primary/50 uppercase font-bold tracking-widest mb-1">Completeness</span>
+                    <span id="modal-completeness" class="text-sm font-bold text-white lowercase">90%</span>
+                </div>
+            </div>
+            <div class="bg-surface-dim rounded-xl p-4 border border-primary/10 mb-8">
+                <div class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-amber-400 text-sm mt-0.5">lightbulb</span>
+                    <p id="modal-funfact" class="text-on-surface-variant text-sm leading-relaxed italic">Fun fact loading...</p>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-primary/10 hover:bg-primary border border-primary/30 text-primary hover:text-on-primary px-8 py-4 rounded-xl font-bold font-headline transition-colors uppercase tracking-widest text-xs">Close Archive</button>
+        </div>
+    </div>
+</div>
+
+</div>
+</main>
+</div>
+
+<script src="data.js"></script>
+<script src="animations.js"></script>
+<script>
+    let currentCategory = 'All';
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        if(typeof fossils !== 'undefined') {
+            filterFossils();
+        }
+    });
+
+    function showCategory(cat) {
+        currentCategory = cat;
+        document.getElementById('fossil-title').innerText = cat === 'All' ? 'All Fossils' : cat + 's';
+        
+        document.querySelectorAll('#sidebar-nav a').forEach(a => {
+            a.className = "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out hover:bg-emerald-800/20 hover:text-emerald-200 text-emerald-100/60 font-epilogue font-medium text-base cursor-pointer";
+            if(a.innerText.trim() === cat + "s" || a.innerText.trim() === cat || (cat==='All' && a.innerText.trim()==='All Fossils')) {
+                a.className = "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-in-out bg-emerald-800/40 text-amber-400 border-r-4 border-amber-400 font-epilogue font-medium text-base cursor-pointer";
+            }
+        });
+
+        document.getElementById('fossil-search').value = '';
+        filterFossils();
+    }
+
+    function filterFossils() {
+        if (typeof fossils === 'undefined') return;
+        
+        const searchTerm = document.getElementById('fossil-search').value.toLowerCase();
+        
+        const filtered = fossils.filter(f => {
+            const matchesCat = currentCategory === 'All' || f.category === currentCategory;
+            const matchesSearch = f.name.toLowerCase().includes(searchTerm) || f.location.toLowerCase().includes(searchTerm);
+            return matchesCat && matchesSearch;
+        });
+
+        renderFossils(filtered);
+    }
+
+    function renderFossils(list) {
+        const grid = document.getElementById('fossil-grid');
+        grid.innerHTML = '';
+        if(list.length === 0) {
+            grid.innerHTML = '<div class="col-span-12 text-center text-on-surface-variant/50 py-20 font-bold uppercase tracking-widest text-sm">No specimens found matching criteria.</div>';
+            return;
+        }
+
+        list.forEach((fossil, index) => {
+            const html = `
+                <div onclick="openModalByName('${fossil.name}')" class="group relative bg-surface-container-highest rounded-2xl overflow-hidden border border-outline-variant/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] cursor-pointer card-shine reveal" style="transition-delay:${Math.min(index * 0.1, 0.6)}s">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="${fossil.image}" alt="${fossil.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-surface-bright/80 backdrop-blur-md rounded-full text-[10px] font-black font-headline uppercase tracking-widest text-primary border border-primary/20">${fossil.category}</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                            <span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-widest">${fossil.location}</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-extrabold text-on-surface mb-1 group-hover:text-primary transition-colors">${fossil.name}</h3>
+                        <div class="flex items-center justify-between pt-6 border-t border-outline-variant/10 mt-6">
+                            <div>
+                                <p class="text-[10px] text-on-surface-variant/50 uppercase font-bold mb-1">Completeness</p>
+                                <p class="text-sm font-bold text-on-surface">${fossil.completeness}</p>
+                            </div>
+                            <button class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += html;
+        });
+        initScrollReveal();
+    }
+
+    function openModalByName(name) {
+        if (typeof fossils === 'undefined') return;
+        const fossil = fossils.find(f => f.name === name);
+        if(!fossil) return;
+        
+        document.getElementById('modal-img').src = fossil.image;
+        document.getElementById('modal-category').innerText = fossil.category;
+        document.getElementById('modal-name').innerText = fossil.name;
+        document.getElementById('modal-location').innerText = fossil.location;
+        document.getElementById('modal-completeness').innerText = fossil.completeness;
+        document.getElementById('modal-discovery').innerText = fossil.discovery || '—';
+        document.getElementById('modal-funfact').innerText = fossil.funFact || 'No data available.';
+        
+        const modal = document.getElementById('fossil-modal');
+        modal.classList.remove('hidden');
+        
+        requestAnimationFrame(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('modal-content').classList.remove('scale-95');
+        });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('fossil-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('modal-content').classList.add('scale-95');
+        setTimeout(() => { modal.classList.add('hidden'); }, 300);
+    }
+</script>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="referrer" content="no-referrer"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;800;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#283044",
+              "primary": "#8bd79b",
+              "surface-tint": "#8bd79b",
+              "on-surface-variant": "#bfc9bd",
+              "background": "#0b1326",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#ffb693",
+              "surface-bright": "#31394d",
+              "on-secondary-container": "#fc9e6f",
+              "on-primary": "#003918",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#ffddb8",
+              "on-secondary-fixed-variant": "#76330d",
+              "on-error": "#690005",
+              "surface-container": "#171f33",
+              "secondary": "#ffb693",
+              "secondary-fixed": "#ffdbcc",
+              "on-tertiary-container": "#ffc47d",
+              "primary-container": "#166534",
+              "surface-variant": "#2d3449",
+              "on-primary-fixed": "#00210b",
+              "on-primary-container": "#93e0a2",
+              "secondary-container": "#76330d",
+              "tertiary-container": "#7d4e00",
+              "inverse-primary": "#1f6c3a",
+              "primary-fixed": "#a6f4b5",
+              "on-primary-fixed-variant": "#005226",
+              "primary-fixed-dim": "#8bd79b",
+              "on-tertiary-fixed-variant": "#653e00",
+              "outline": "#899388",
+              "surface-container-high": "#222a3d",
+              "surface": "#0b1326",
+              "on-tertiary-fixed": "#2a1700",
+              "error-container": "#93000a",
+              "surface-container-lowest": "#060e20",
+              "tertiary": "#ffb95f",
+              "surface-dim": "#0b1326",
+              "on-secondary-fixed": "#351000",
+              "on-secondary": "#561f00",
+              "outline-variant": "#404940",
+              "inverse-surface": "#dae2fd",
+              "on-tertiary": "#472a00",
+              "on-background": "#dae2fd",
+              "surface-container-low": "#131b2e",
+              "surface-container-highest": "#2d3449",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-surface": "#dae2fd"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(23, 31, 51, 0.6);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-emerald-950/60 backdrop-blur-xl shadow-[0_0_32px_-4px_rgba(255,185,95,0.1)] flex justify-between items-center px-8 h-20 w-full">
+<div class="text-2xl font-black tracking-tighter text-emerald-400 font-headline uppercase">DINO.CORE</div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight text-sm uppercase">
+<a class="text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="index.html">Discovery</a>
+<a class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1" href="eras.html">Eras</a>
+<a class="text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="fossils.html">Fossils</a>
+<a class="text-emerald-100/70 hover:text-emerald-300 transition-colors duration-300" href="research.html">Research</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-emerald-400 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-emerald-400 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-emerald-900/40 border border-emerald-400/20 overflow-hidden">
+<img alt="Researcher Profile" class="w-full h-full object-cover" data-alt="Researcher Profile Avatar" src="images/img_3.jpg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-24 bg-emerald-950/40 backdrop-blur-2xl hidden lg:flex flex-col gap-4 p-6 z-40">
+<div class="mb-8">
+<h3 class="text-emerald-400 font-black font-headline text-lg">Era Database</h3>
+<p class="text-emerald-100/60 text-xs uppercase tracking-widest">Phanerozoic Eon</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow" id="sidebar-nav">
+<a class="flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out bg-emerald-800/40 text-amber-400 border-r-4 border-amber-400 font-medium text-base cursor-pointer" onclick="showEra('All')">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+<span>All Eras</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out hover:bg-emerald-800/20 hover:text-emerald-200 text-emerald-100/60 font-medium text-base cursor-pointer" onclick="showEra('Triassic')">
+<span class="material-symbols-outlined" data-icon="landscape">landscape</span>
+<span>Triassic</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out hover:bg-emerald-800/20 hover:text-emerald-200 text-emerald-100/60 font-medium text-base cursor-pointer" onclick="showEra('Jurassic')">
+<span class="material-symbols-outlined" data-icon="forest">forest</span>
+<span>Jurassic</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out hover:bg-emerald-800/20 hover:text-emerald-200 text-emerald-100/60 font-medium text-base cursor-pointer" onclick="showEra('Cretaceous')">
+<span class="material-symbols-outlined" data-icon="volcano">volcano</span>
+<span>Cretaceous</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-32 px-8 pb-20 max-w-7xl mx-auto min-h-screen">
+    
+    <header class="mb-12">
+        <span class="text-tertiary font-headline font-bold text-sm tracking-[0.4em] uppercase mb-4 block" id="era-subtitle">Global Database</span>
+        <h1 class="text-6xl md:text-8xl font-black font-headline text-on-surface tracking-tighter leading-none mb-6" id="era-title">All Eras</h1>
+    </header>
+
+    <!-- Sticky Search -->
+    <section class="sticky top-20 z-30 py-6 mb-8 bg-background/80 backdrop-blur-xl -mx-8 px-8">
+        <div class="max-w-7xl mx-auto bg-surface-container-highest rounded-xl border border-white/5 p-4 flex flex-col md:flex-row gap-4 items-center shadow-lg">
+            <div class="relative flex-1 w-full flex items-center">
+                <span class="material-symbols-outlined absolute left-4 text-emerald-400">search</span>
+                <input id="dino-search" onkeyup="filterDinosaurs()" class="w-full bg-surface-dim border-none rounded-xl pl-12 pr-4 py-3 text-sm focus:ring-2 focus:ring-emerald-400 transition-all text-white outline-none" placeholder="Search 45+ species..." type="text"/>
+            </div>
+            <select id="diet-filter" onchange="filterDinosaurs()" class="w-full md:w-auto bg-surface-dim border-none rounded-xl text-xs font-bold uppercase tracking-wider px-4 py-3 focus:ring-2 focus:ring-emerald-400 outline-none text-emerald-100/70">
+                <option value="All">All Diets</option>
+                <option value="Carnivore">Carnivore</option>
+                <option value="Herbivore">Herbivore</option>
+                <option value="Omnivore">Omnivore</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Dinosaur Grid -->
+    <div id="dino-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Rendered via JS -->
+    </div>
+
+
+<!-- Dinosaur Detail Modal -->
+<div id="dino-modal" class="fixed inset-0 z-[100] bg-background/90 backdrop-blur-md hidden flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+   <div class="bg-surface-container-highest rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.8)] relative flex flex-col md:flex-row transform scale-95 transition-transform duration-300" id="modal-content">
+        <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center text-white hover:bg-error-container hover:text-error transition-colors"><span class="material-symbols-outlined">close</span></button>
+        <div class="w-full md:w-5/12 h-64 md:h-auto relative bg-surface-dim">
+            <img id="modal-img" src="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-surface-container-highest to-transparent"></div>
+            <div id="modal-danger-badge" class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-md"></div>
+        </div>
+        <div class="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center">
+            <span id="modal-era" class="text-tertiary font-black font-headline uppercase tracking-[0.2em] text-[10px] mb-1">Era</span>
+            <h2 id="modal-name" class="text-3xl lg:text-4xl font-black font-headline tracking-tighter uppercase mb-1 gradient-text leading-none">Name</h2>
+            <p id="modal-discovered" class="text-[10px] text-emerald-100/40 uppercase tracking-widest mb-5">Discovered 1905</p>
+            <div class="grid grid-cols-3 gap-3 mb-5">
+                <div class="bg-surface-container-low p-3 rounded-xl border border-white/5 border-l-4 border-l-emerald-400">
+                    <span class="block text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest mb-1">Diet</span>
+                    <span id="modal-diet" class="text-xs font-bold text-white uppercase">Diet</span>
+                </div>
+                <div class="bg-surface-container-low p-3 rounded-xl border border-white/5">
+                    <span class="block text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest mb-1">Length</span>
+                    <span id="modal-length" class="text-xs font-bold text-white uppercase">Length</span>
+                </div>
+                <div class="bg-surface-container-low p-3 rounded-xl border border-white/5">
+                    <span class="block text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest mb-1">Weight</span>
+                    <span id="modal-weight" class="text-xs font-bold text-white uppercase">Weight</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="bg-surface-container-low p-3 rounded-xl border border-white/5">
+                    <span class="block text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest mb-1">Speed</span>
+                    <span id="modal-speed" class="text-xs font-bold text-white">—</span>
+                    <div class="speed-bar mt-2"><div id="modal-speed-bar" class="speed-bar-fill" style="width:0%"></div></div>
+                </div>
+                <div class="bg-surface-container-low p-3 rounded-xl border border-white/5">
+                    <span class="block text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest mb-1">Habitat</span>
+                    <span id="modal-habitat" class="text-xs font-bold text-white">—</span>
+                </div>
+            </div>
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-[9px] text-emerald-100/50 uppercase font-bold tracking-widest">Danger Level</span>
+                    <span id="modal-danger-label" class="text-[9px] font-bold uppercase tracking-widest">—</span>
+                </div>
+                <div class="danger-meter"><div id="modal-danger-fill" class="danger-meter-fill" style="width:0%"></div></div>
+            </div>
+            <div class="bg-surface-dim rounded-xl p-4 border border-emerald-400/10 mb-5">
+                <div class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-amber-400 text-sm mt-0.5">lightbulb</span>
+                    <p id="modal-funfact" class="text-emerald-100/70 text-xs leading-relaxed italic">Fun fact loading...</p>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-emerald-400/10 hover:bg-emerald-400 border border-emerald-400/30 text-emerald-400 hover:text-emerald-950 px-8 py-3 rounded-xl font-bold font-headline transition-colors uppercase tracking-widest text-xs">Return to Archive</button>
+        </div>
+   </div>
+</div>
+
+<!-- Footer Decoration -->
+<footer class="mt-32 pt-12 border-t border-emerald-900/10 flex flex-col md:flex-row justify-between items-center gap-8 opacity-50">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-headline tracking-[0.3em] uppercase text-emerald-100/40">Real-time Stratigraphic Feed Active</span>
+</div>
+<div class="flex gap-8 text-[10px] font-headline tracking-widest uppercase text-emerald-100/30">
+<a class="hover:text-primary transition-colors" href="#">Core Systems</a>
+<a class="hover:text-primary transition-colors" href="#">Chronos Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Legal Records</a>
+</div>
+</footer>
+</main>
+<!-- Floating Navigation for Mobile -->
+<div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] glass-panel rounded-full px-6 py-4 flex justify-between items-center shadow-2xl border border-white/5">
+<button class="text-amber-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">landscape</span>
+</button>
+<button class="text-emerald-100/50">
+<span class="material-symbols-outlined">forest</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_20px_rgba(139,215,155,0.4)] -mt-12 border-4 border-background">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="text-emerald-100/50">
+<span class="material-symbols-outlined">volcano</span>
+</button>
+<button class="text-emerald-100/50">
+<span class="material-symbols-outlined">person</span>
+</button>
+</di<!-- Application Logic -->
+<script src="data.js"></script>
+<script src="animations.js"></script>
+<script>
+    let currentEra = 'All';
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        if(typeof dinosaurs !== 'undefined') {
+            filterDinosaurs();
+        }
+    });
+
+    function showEra(era) {
+        currentEra = era;
+        document.getElementById('era-title').innerText = era === 'All' ? 'All Eras' : era;
+        document.getElementById('era-subtitle').innerText = era === 'All' ? 'Global Database' : "Detailed " + era + " Archive";
+        
+        document.querySelectorAll('#sidebar-nav a').forEach(a => {
+            a.className = "flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out hover:bg-emerald-800/20 hover:text-emerald-200 text-emerald-100/60 font-medium text-base cursor-pointer";
+            if(a.innerText.trim() === era + " Eras" || a.innerText.trim() === era || (era==='All' && a.innerText.trim()==='All Eras')) {
+                a.className = "flex items-center gap-4 p-3 rounded-xl transition-all duration-200 ease-in-out bg-emerald-800/40 text-amber-400 border-r-4 border-amber-400 font-medium text-base cursor-pointer";
+            }
+        });
+
+        document.getElementById('dino-search').value = '';
+        document.getElementById('diet-filter').value = 'All';
+        filterDinosaurs();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function filterDinosaurs() {
+        if (typeof dinosaurs === 'undefined') return;
+        const searchTerm = document.getElementById('dino-search').value.toLowerCase();
+        const dietTerm = document.getElementById('diet-filter').value;
+        
+        const filtered = dinosaurs.filter(d => {
+            const matchesEra = currentEra === 'All' || d.era === currentEra;
+            const matchesSearch = d.name.toLowerCase().includes(searchTerm);
+            const matchesDiet = dietTerm === 'All' || d.diet === dietTerm;
+            return matchesEra && matchesSearch && matchesDiet;
+        });
+        renderDinosaurs(filtered);
+    }
+
+    function renderDinosaurs(list) {
+        const grid = document.getElementById('dino-grid');
+        grid.innerHTML = '';
+        if(list.length === 0) {
+            grid.innerHTML = '<div class="col-span-12 text-center text-emerald-100/50 py-20 font-bold uppercase tracking-widest text-sm">No specimens found matching criteria.</div>';
+            return;
+        }
+
+        list.forEach((dino, index) => {
+            let badgeColors = {
+                Carnivore: "bg-error-container/30 text-error border border-error/20",
+                Herbivore: "bg-emerald-900/40 text-emerald-400 border border-emerald-400/20",
+                Omnivore: "bg-amber-900/40 text-amber-400 border border-amber-400/20"
+            };
+            const dangerPct = ((dino.dangerLevel || 1) / 10 * 100);
+
+            const html = `
+                <div onclick="openModalByName('${dino.name}')" class="cursor-pointer group relative flex flex-col bg-surface-container-highest rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] border border-white/5 hover:border-emerald-400/30 card-shine reveal" style="transition-delay:${Math.min(index * 0.06, 0.5)}s">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="${dino.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest to-transparent"></div>
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="${badgeColors[dino.diet]} text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest backdrop-blur-md">${dino.diet}</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider backdrop-blur-md bg-black/40 text-white/70">${dino.speed || ''}</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black font-headline tracking-tighter uppercase mb-1 group-hover:text-emerald-400 transition-colors">${dino.name}</h3>
+                        <p class="text-[10px] text-emerald-100/40 uppercase tracking-widest mb-3">${dino.habitat || ''} · ${dino.era}</p>
+                        <div class="flex justify-between items-center pt-4 border-t border-white/5">
+                            <div class="flex gap-4">
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] text-emerald-100/40 uppercase tracking-widest font-bold">Length</span>
+                                    <span class="text-sm font-bold text-white">${dino.length}</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] text-emerald-100/40 uppercase tracking-widest font-bold">Danger</span>
+                                    <div class="flex items-center gap-1 mt-1">
+                                        <div class="danger-meter w-16"><div class="danger-meter-fill" style="width:${dangerPct}%"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="bg-surface-container-low p-3 rounded-full group-hover:bg-emerald-400 transition-all border border-white/5 group-hover:border-emerald-400 group-hover:shadow-[0_0_20px_rgba(52,211,153,0.4)]">
+                                <span class="material-symbols-outlined text-emerald-100/40 group-hover:text-emerald-950 transition-colors block text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += html;
+        });
+        initScrollReveal();
+    }
+
+    function openModalByName(name) {
+        if (typeof dinosaurs === 'undefined') return;
+        const dino = dinosaurs.find(d => d.name === name);
+        if(!dino) return;
+        
+        document.getElementById('modal-img').src = dino.image;
+        document.getElementById('modal-era').innerText = dino.era + ' Period';
+        document.getElementById('modal-name').innerText = dino.name;
+        document.getElementById('modal-diet').innerText = dino.diet;
+        document.getElementById('modal-length').innerText = dino.length;
+        document.getElementById('modal-weight').innerText = dino.weight;
+        document.getElementById('modal-speed').innerText = dino.speed || '\u2014';
+        document.getElementById('modal-habitat').innerText = dino.habitat || '\u2014';
+        document.getElementById('modal-discovered').innerText = 'Discovered ' + (dino.discovered || '\u2014');
+        document.getElementById('modal-funfact').innerText = dino.funFact || 'No data available.';
+
+        const speedNum = parseInt(dino.speed) || 0;
+        document.getElementById('modal-speed-bar').style.width = Math.min(speedNum / 130 * 100, 100) + '%';
+
+        const dl = dino.dangerLevel || 1;
+        document.getElementById('modal-danger-fill').style.width = (dl / 10 * 100) + '%';
+        const dangerLabel = document.getElementById('modal-danger-label');
+        dangerLabel.innerText = getDangerLabel(dl);
+        dangerLabel.style.color = getDangerColor(dl);
+
+        const badge = document.getElementById('modal-danger-badge');
+        badge.innerText = dl + '/10';
+        badge.style.background = getDangerColor(dl) + '33';
+        badge.style.color = getDangerColor(dl);
+        badge.style.border = '1px solid ' + getDangerColor(dl) + '44';
+        
+        const modal = document.getElementById('dino-modal');
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('modal-content').classList.remove('scale-95');
+        });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('dino-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('modal-content').classList.add('scale-95');
+        setTimeout(() => { modal.classList.add('hidden'); }, 300);
+    }
+</script>
+</body></html>/html>
